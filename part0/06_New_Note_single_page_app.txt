@@ -1,0 +1,9 @@
+title Single Page App
+
+note over browser: Form is wrapped in html tag <form> and nested in there is input tags\n. One input tag is of type text and is given the name of "note"\n.The other tag is of type input with the value of "save". This acts as a button\n. Thre is no action or method attribute given to the form\n. When the save button is clicked, using the DOM API, javascript runs that creates a new note in the browser\n using the value from the input tag for note and the current date.\n This new note is then added to the notes array in the browser which is then redrawn in the browser and displayed.\n Finally, the javascript calls a sendtoserver function that sends the new note to the server\n using the post method and setting the action in the function. The function also sets the headers content type to json\n This allows the server to correctly parse the data.  
+browser->server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note_spa.
+
+note over server: The server receives the request and adds the new note form the request payload to the notes array on the server.\n The server then sends a 201 response. The page is not reloaded.     
+server-->browser: 201 Created Response.
+
+end note

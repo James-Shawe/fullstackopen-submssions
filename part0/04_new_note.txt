@@ -1,0 +1,25 @@
+title New Note
+
+note over browser: Form is wrapped in html tag <form> and nested in there is input tags\n. One input tag is of type text and is given the name of "note"\n.The other tag is of type input with the value of "save". This acts as a button\n. When it is clicked it will send the form data to the url given in the "action" attribute of the form tag\n. Using the POST method as this was given in the form tag\n. The data sent to the server is in the form of key value pairs, with the attribute "name" from the input tag being the key\n and the data from that input tag being the value. 
+browser->server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note.
+note over server: The server receives this key value pair in the form of the request(req)\n. The data within the req is added to the notes array on the server\n. Using notes.push() and assigning the new note value to the content field\nand assinging the registration date field as the current date\n. With the new note added to the array in the server, the server then sends\n a response(res) to the client which redirects to the /notes page.  
+server-->browser: 302 Found Response. Redirect user to /notes.
+note over browser: This redirect reloads the notes page in the browser which then calls the GET requests again.
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+server-->browser: HTML-code
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+server-->browser: main.js
+note over browser:
+browser starts executing js-code
+that requests JSON data from server 
+end note
+
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+server-->browser: [{ content: "HTML is easy", date: "2019-05-23" }, ...]
+
+note over browser:
+browser executes the event handler
+that renders notes to display
+end note
